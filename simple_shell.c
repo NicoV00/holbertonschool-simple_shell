@@ -13,7 +13,7 @@ int main(void)
 		if (!input)
 		{
 			printf("\n");
-			break; // end of input, exit shell
+			break;
 		}
 
 		tokens = parse_input(input);

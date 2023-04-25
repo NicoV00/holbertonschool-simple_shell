@@ -14,25 +14,28 @@ char* read_input(void)
 	if (!fgets(input, MAX_INPUT_LENGTH, stdin))
 	{
 		free(input);
-		return NULL; // End of input
+		return NULL;
 	}
 	
-	input[strcspn(input, "\n")] = '\0'; // Remove newline characte
+	input[strcspn(input, "\n")] = '\0';
 	
 	return input;
 }
 
 char** parse_input(char* input)
 {
-	char** tokens = (char**) malloc(MAX_TOKENS * sizeof(char*));
+	char** tokens;
+	int token_count = 0;
+	char* token;
+	
+	tokens = (char**) malloc(MAX_TOKENS * sizeof(char*));
 	if (!tokens)
 	{
 		perror("malloc");
 		exit(EXIT_FAILURE);
 	}
 	
-	int token_count = 0;
-	char* token = strtok(input, " ");
+	token = strtok(input, " ");
 	while (token)
 	{
 		tokens[token_count++] = token;
@@ -45,10 +48,11 @@ char** parse_input(char* input)
 		
 		token = strtok(NULL, " ");
 	}
-	tokens[token_count] = NULL; // NULL-terminate the array
-	
+
+	tokens[token_count] = NULL;
 	return tokens;
 }
+
 
 void execute_command(char** tokens)
 {
@@ -60,7 +64,7 @@ void execute_command(char** tokens)
 	}
 	
 	if (pid == 0)
-	{ // Child process
+	{
 		if (execvp(tokens[0], tokens) == -1)
 		{
 			perror("execvp");
@@ -69,7 +73,7 @@ void execute_command(char** tokens)
 	}
 	
 	else
-	{ // Parent process
+	{
 		int status;
 		waitpid(pid, &status, 0);
 	}
@@ -77,9 +81,10 @@ void execute_command(char** tokens)
 
 void free_tokens(char** tokens, int token_count)
 {
-	for (int i = 0; i < token_count; i++)
+	if (token_count > 0)
 	{
-		free(tokens[i]);
+		free_tokens(tokens, token_count - 1);
+		free(tokens[token_count - 1]);
 	}
 	free(tokens);
 }

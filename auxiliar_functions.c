@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * parse_input - divide la entrada en argumentos utilizando el espacio como delimitado

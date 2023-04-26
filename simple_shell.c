@@ -30,6 +30,7 @@ int main(void)
 		}
 
 		free(input);
+		input = NULL;
 	}
 
 	return (0);

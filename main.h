@@ -12,9 +12,9 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-char* read_input(void);
-char** parse_input(char* input);
-void execute_command(char** tokens);
-void free_tokens(char** tokens, int token_count);
+char *read_input(void);
+char **parse_input(char *input);
+void execute_command(char **tokens);
+void free_tokens(char **tokens, int token_count);
 
 #endif

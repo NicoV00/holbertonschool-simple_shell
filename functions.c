@@ -65,9 +65,9 @@ void execute_command(char** tokens)
 	
 	if (pid == 0)
 	{
-		if (execvp(tokens[0], tokens) == -1)
+		if (execve(tokens[0], tokens) == -1)
 		{
-			perror("execvp");
+			perror("execve");
 			exit(EXIT_FAILURE);
 		}
 	}

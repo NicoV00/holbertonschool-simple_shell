@@ -1,9 +1,15 @@
 #include "main.h"
 
+/**
+ * main - Simple shell implementation
+ *
+ * Return: Always 0
+ */
+
 int main(void)
 {
-	char* input;
-	char** tokens;
+	char *input;
+	char **tokens;
 
 	while (1)
 	{
@@ -24,7 +30,8 @@ int main(void)
 		}
 
 		free(input);
+		input = NULL;
 	}
-	
-	return 0;
+
+	return (0);
 }

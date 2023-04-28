@@ -83,7 +83,7 @@ void execute(char **command, char *name, char **env, int cicles)
  * Return: Nothing.
  */
 
-void msgerror(char *name, int cicles, char **command)
+void mserror(char *name, int cicles, char **command)
 {
 	char c;
 

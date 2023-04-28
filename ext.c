@@ -12,9 +12,9 @@ char **_getPATH(char **env)
 	char *pathvalue = NULL, **pathways = NULL;
 	unsigned int i = 0;
 
-	pathvalue = strtok(env[i], "=");
 	while (env[i])
 	{
+		pathvalue = strtok(env[i], "=");
 		if (_strcmp(pathvalue, "PATH"))
 		{
 			pathvalue = strtok(NULL, "\n");
@@ -22,7 +22,6 @@ char **_getPATH(char **env)
 			return(pathways);
 		}
 		i++;
-			pathvalue = strtok(env[i], "=");
 	}
 	return (NULL);
 }
@@ -43,7 +42,11 @@ void execute(char **command, char *name, char **env, int cicles)
 	unsigned int i = 0;
 
 	if (_strcmp(command[0], "env") != 0)
+	{
 		print_env(env);
+		return;
+	}
+
 	if (stat(command[0], &st) == 0)
 	{
 		if (execve(command[0], command, env) < 0)
@@ -55,23 +58,23 @@ void execute(char **command, char *name, char **env, int cicles)
 	else
 	{
 		pathways = _getPATH(env);
-		while (pathways[i])
+		while (pathways && pathways[i])
 		{
-			full_path = _strcat(pathways[i], command[0]);
-			i++;
+			full_path = _strcat(pathways[i], "/");
+			full_path = _strcat(full_path, command[0]);	
 			if (stat(full_path, &st) == 0)
 			{
 				if (execve(full_path, command, env) < 0)
 				{
 					perror(name);
-					_free(pathways);
 					free_exit(command);
 				}
 				return;
 			}
+			i++;
 		}
-		mserror(name, command, cicles);
-		_free(pathways);
+		mserror(name, cicles, command);
+		free_exit(command);
 	}
 }
 
@@ -85,14 +88,14 @@ void execute(char **command, char *name, char **env, int cicles)
 
 void mserror(char *name, int cicles, char **command)
 {
-	char c;
+	char *cycle_number = NULL;
 
-	c = cicles + '0';
-
+	cycle_number = snprintf(cicles);
 	write(STDOUT_FILENO, name, _strlen(name));
 	write(STDOUT_FILENO, ": ", 2);
-	write(STDOUT_FILENO, &c, 1);
+	write(STDOUT_FILENO, cycle_number, _strlen(cycle_number));
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, command[0], _strlen(command[0]));
 	write(STDOUT_FILENO, ": error not found\n", 18);
+	free(cycle_number);
 }

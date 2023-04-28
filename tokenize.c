@@ -7,27 +7,27 @@
  * Return: A pointer to an array of tokens.
  */
 
-char **tokening(char *buffer, const char *s)
+char **tokenize(char *buffer, const char *s)
 {
 	char *token = NULL, **commands = NULL;
 	size_t bufsize = 0;
 	int i = 0;
 
-	if (buffer == NULL)
+	if (input == NULL)
 		return (NULL);
 
-	bufsize = _strlen(buffer);
+	bufsize = _strlen(input);
 	commands = malloc((bufsize + 1) * sizeof(char *));
 
 	if (commands == NULL)
 	{
 		perror("Unable to allocate buffer");
-		free(buffer);
+		free(input);
 		free_dp(commands);
 		exit(EXIT_FAILURE);
 	}
 
-	token = strtok(buffer, s);
+	token = strtok(input, s);
 	while (token != NULL)
 	{
 		commands[i] = malloc(_strlen(token) + 1);

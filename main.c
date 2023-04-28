@@ -47,3 +47,47 @@ int main(void)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
+
+
+/*
+ * _EOF - Function that handles EOF signal.
+ * @buffer: Buffer to be freed.
+ * Return: Nothing.
+ */
+
+void _EOF(char *buffer)
+{
+	if (buffer)
+	{
+		free(buffer)};
+		buffer = NULL;
+	}
+
+	if (isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "\n", 1);
+	free(buffer);
+	exit(EXIT_SUCCESS);
+}
+
+/*
+ * prompt - Function that prints prompt.
+ * Return: Nothing.
+ */
+
+void  promt(void)
+{
+	if(isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "Sshell $ ", 2);
+}
+
+/*
+ * handle - Function to handle Cre + C.
+ * @signals: Signals to handle.
+ * Return: Nothing.
+ */
+
+void handle(int signals)
+{
+	(void)signals;
+	write(STDOUT_FILENO, "\nShell $ ", 3);
+}

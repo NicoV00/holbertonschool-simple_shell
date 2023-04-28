@@ -88,14 +88,15 @@ void execute(char **command, char *name, char **env, int cicles)
 
 void mserror(char *name, int cicles, char **command)
 {
-	char *cycle_number = NULL;
+	char *num
 
-	cycle_number = snprintf(cicles);
+	num = _itoa(cicles);
 	write(STDOUT_FILENO, name, _strlen(name));
 	write(STDOUT_FILENO, ": ", 2);
-	write(STDOUT_FILENO, cycle_number, _strlen(cycle_number));
+	write(STDOUT_FILENO, num, _strlen(num));
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, command[0], _strlen(command[0]));
-	write(STDOUT_FILENO, ": error not found\n", 18);
-	free(cycle_number);
+	write(STDOUT_FILENO, ": error not found\n", 12);
+	free(num);
+	free_exit(command);
 }

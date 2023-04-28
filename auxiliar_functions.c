@@ -73,11 +73,10 @@ char *_strdup(char *str)
 char *_strcat(char *dest, char *src)
 {
 	int dest_len = 0;
+	int i = 0;
 
 	while (dest[dest_len] != '\0')
 		dest_len++;
-
-	int i = 0;
 
 	while (src[i] != '\0')
 	{
@@ -127,11 +126,8 @@ int _atoi(char *x)
 			null_flag = 1;
 			total = total * 10 + (*x - '0');
 		}
-		else if (*x < '0' || *x > '9')
-		{
-			if (null_flag == 1)
-				break;
-		}
+		else if (null_flag == 1)
+			break;
 		x++;
 	}
 	if (sign < 0)

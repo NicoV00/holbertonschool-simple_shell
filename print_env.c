@@ -8,7 +8,8 @@
 
 void print_env(char **env)
 {
-	size_t i =0; len = 0;
+	size_t i =0; 
+	size_t len = 0;
 
 	while (env[i])
 	{

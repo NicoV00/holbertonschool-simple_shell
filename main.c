@@ -43,7 +43,7 @@ int main(void)
 			cmd = NULL;
 		}
 	}
-	if (chars_reades == -1)
-		return (EXIT_FAILURE)
+	if (chars_readed == -1)
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

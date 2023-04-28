@@ -9,16 +9,28 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-/* Functions */
-int execute(char **args, char *input, int status, int count);
-char **tokenize_line(char *line);
-char **tokenize(char *input, char *delimiter);
-void free_grid(char **grid);
-void print_env(void);
+/* Excutable */
+void execute(char **command, char *name, char **env, int cicles);
+char **_getPATH(char **env);
+void print_env(char **env);
+
+/* Functions shell */
+int main(int ac, char **av, char **env);
 void prompt(void);
-void handle(int signals);
 void _EOF(char *buffer);
+void handle(int signals);
 void exit_shell(char **command);
+ 
+/* child process creation */
+void create_child(char **command, char *name, char **env, int cicles);
+int change_dir(const char *path);
+
+/* tokenize */
+char **tokenize(char *buffer, const char *s);
+
+/* free */
+void _free(char **command);
+void free_exit(char **command);
 
 /* Auxiliar functions */
 int _strcmp(char *s1, char *s2);

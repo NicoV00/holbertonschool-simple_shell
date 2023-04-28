@@ -28,7 +28,7 @@ int _strcmp(char *s1, char *s2)
  * Return: pointer to the duplicated string, or NULL.
  */
 
-char *_strdup(char *str);
+char *_strdup(char *str)
 {
 	int i, x;
 	char *array;

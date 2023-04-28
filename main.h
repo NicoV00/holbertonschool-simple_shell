@@ -36,9 +36,10 @@ void free_exit(char **command);
 /* Auxiliar functions */
 int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
+char *_strcpy(char *copyed, char *copy)
 char *_strcat(char *dest, char *src);
-int _strlen(char *str);
-int _atoi(char *s);
+unsigned int _strlen(char *str);
+int _atoi(char *x);
 
 /* Global variable */
 extern char **env;

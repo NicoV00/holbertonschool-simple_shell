@@ -13,6 +13,7 @@
 void execute(char **command, char *name, char **env, int cicles);
 char **_getPATH(char **env);
 void print_env(char **env);
+void mserror(char *name, int cicles, char **command);
 
 /* Functions shell */
 int main(int ac, char **av, char **env);
@@ -40,6 +41,6 @@ int _strlen(char *str);
 int _atoi(char *s);
 
 /* Global variable */
-extern char **environ;
+extern char **env;
 
 #endif

@@ -1,9 +1,6 @@
 #ifndef main_h
 #define main_h
 
-#define MAX_INPUT_LENGTH 1024
-#define MAX_TOKENS 64
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -12,20 +9,36 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-<<<<<<< HEAD
-extern char **environ;
+/* Excutable */
+void execute(char **command, char *name, char **env, int cicles);
+char **_getPATH(char **env);
+void print_env(char **env);
 
-char* read_input(void);
-char** parse_input(char* input);
-void execute_command(char** tokens);
-void free_tokens(char** tokens, int token_count);
-char* strdup(const char* s);
-size_t strlen(const char* s);
-=======
-char *read_input(void);
-char **parse_input(char *input);
-void execute_command(char **tokens);
-void free_tokens(char **tokens, int token_count);
->>>>>>> d2ce1925ebcd11982ec26638c5bf5ed9e896102b
+/* Functions shell */
+int main(int ac, char **av, char **env);
+void prompt(void);
+void _EOF(char *buffer);
+void handle(int signals);
+void exit_shell(char **command);
+ 
+/* child process creation */
+void create_child(char **command, char *name, char **env, int cicles);
+int change_dir(const char *path);
+
+/* tokenize */
+char **tokenize(char *buffer, const char *s);
+
+/* free */
+void _free(char **command);
+void free_exit(char **command);
+
+/* Auxiliar functions */
+int _strcmp(char *s1, char *s2);
+char *_strdup(char *str);
+int _strlen(char *str);
+
+
+/* Global variable */
+extern char **environ;
 
 #endif

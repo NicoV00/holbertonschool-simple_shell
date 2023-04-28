@@ -1,10 +1,26 @@
 #include "main.h"
 
-/**
- * _strcmp - A funtion that compares two strings
- * @s1: first string to compare
- * @s2: string to compare
- * Return: an integer
+/*
+ * _strcpy - Function thta copies string to string.
+ * @copyed: Pointer to copy.
+ * @copy: Pointer to string to copy.
+ * Return: Pointer to copied string.
+ */
+char *_strcpy(char *copyed, char *copy)
+{
+	char *x = copyed;
+
+	while (*x)
+		*copyed++ = *copy++;
+	*copyed = '\0';
+	return (x);
+}
+
+/*
+ * _strcmp - A funtion that compares two strings.
+ * @s1: First string to compare.
+ * @s2: Ftring to compare.
+ * Return: Integer.
  */
 int _strcmp(char *s1, char *s2)
 {
@@ -27,7 +43,6 @@ int _strcmp(char *s1, char *s2)
  * @str: pointer to the string to duplicate.
  * Return: pointer to the duplicated string, or NULL.
  */
-
 char *_strdup(char *str)
 {
 	int i, x;
@@ -55,7 +70,6 @@ char *_strdup(char *str)
  * @src: String origin.
  * Return: Pointer to string.
  */
-
 char *_strcat(char *dest, char *src)
 {
 	int dest_len = 0;
@@ -77,16 +91,50 @@ char *_strcat(char *dest, char *src)
 
 /*
  * _strlen - Calculates the length of a string.
- * @str: The string to calculate the length of.
+ * @str: The string to calculate the length.
  * Return: The length of the string.
  */
-
-int _strlen(char *str)
+unsigned int _strlen(char *str)
 {
-	int len = 0;
+	unsigned int len = 0;
 
-	while (str && str[len])
+	while (str[len])
 		len++;
 
 	return (len);
+}
+
+
+/**
+ * _atoi - Function that converts string to integer.
+ * @x: Input string.
+ * Return: Integer from conversion.
+ */
+int _atoi(char *x)
+{
+	int sign = 1;
+	unsigned int total = 0;
+	char null_flag = 0;
+
+	if (x == NULL)
+		return (0);
+	while (*x)
+	{
+		if (*x == '-')
+			sign *= -1;
+		if (*x >= '0' && *x <= '9')
+		{
+			null_flag = 1;
+			total = total * 10 + (*x - '0');
+		}
+		else if (*x < '0' || *x > '9')
+		{
+			if (null_flag == 1)
+				break;
+		}
+		x++;
+	}
+	if (sign < 0)
+		total = (-1 * (total));
+	return (total);
 }

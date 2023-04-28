@@ -1,9 +1,9 @@
 #include "main.h"
 
 /*
- *  _free - function that frees memory
- *  @command: pointer to allocated memory
- *  Return: void.
+ *  _free - Function that frees memory
+ *  @command: Pointer to allocated memory
+ *  Return: Void.
  */
 
 void _free(char **command)

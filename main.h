@@ -23,11 +23,11 @@ void handle(int signals);
 void exit_shell(char **command);
  
 /* child process creation */
-void create_child(char **command, char *name, char **env, int cicles);
-int change_dir(const char *path);
+void create_process(char **command, char *name, char **env, int cicles);
+int new_dir(const char *path);
 
 /* tokenize */
-char **tokenize(char *buffer, const char *s);
+char **tokenize(char *input, const char *x);
 
 /* free */
 void _free(char **command);

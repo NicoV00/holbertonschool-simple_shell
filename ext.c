@@ -79,24 +79,21 @@ void execute(char **command, char *name, char **env, int cicles)
 }
 
 /*
- * mserror - Function that prints message.
- * @name: Name of the shell.
+ * mserror - A function that prints message not found.
+ * @name: The name of the shell.
  * @cicles: Number of cicles.
- * @command: Pointer to command.
+ * @command: The pointer to tokenized command.
  * Return: Nothing.
  */
-
 void mserror(char *name, int cicles, char **command)
 {
-	char *num
-
-	num = _itoa(cicles);
+	char c;
+	
+	c = cicles + '0';
 	write(STDOUT_FILENO, name, _strlen(name));
 	write(STDOUT_FILENO, ": ", 2);
-	write(STDOUT_FILENO, num, _strlen(num));
+	write(STDOUT_FILENO, &c, 1);
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, command[0], _strlen(command[0]));
-	write(STDOUT_FILENO, ": error not found\n", 12);
-	free(num);
-	free_exit(command);
+	write(STDOUT_FILENO, ": not found\n", 12);
 }

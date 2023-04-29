@@ -35,7 +35,7 @@ int main(int ac, char **av, char **env)
 			else if (_strcmp(cmd[0], "cd") != 0)
 				new_dir(cmd[1]);
 			else if (_strcmp(cmd[0], "env") == 0)
-				print_env();
+				print_env(env);
 			else
 				create_process(cmd, av[0], env, cycle);
 			_free(cmd);

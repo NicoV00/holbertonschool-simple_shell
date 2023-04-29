@@ -102,35 +102,3 @@ unsigned int _strlen(char *str)
 
 	return (len);
 }
-
-
-/**
- * _atoi - Function that converts string to integer.
- * @x: Input string.
- * Return: Integer from conversion.
- */
-int _atoi(char *x)
-{
-	int sign = 1;
-	unsigned int total = 0;
-	char null_flag = 0;
-
-	if (x == NULL)
-		return (0);
-	while (*x)
-	{
-		if (*x == '-')
-			sign *= -1;
-		if (*x >= '0' && *x <= '9')
-		{
-			null_flag = 1;
-			total = total * 10 + (*x - '0');
-		}
-		else if (null_flag == 1)
-			break;
-		x++;
-	}
-	if (sign < 0)
-		total = (-1 * (total));
-	return (total);
-}

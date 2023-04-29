@@ -39,7 +39,6 @@ char *_strdup(char *str);
 char *_strcpy(char *copyed, char *copy);
 char *_strcat(char *dest, char *src);
 unsigned int _strlen(char *str);
-int _atoi(char *x);
 
 /* Global variable */
 extern char **env;

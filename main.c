@@ -9,7 +9,7 @@
  */
 int main(int ac, char **av, char **env)
 {
-	char *input = NULL, char **cmd = NULL;
+	char *input = NULL, **cmd = NULL;
 	size_t buffer_size = 0;
 	ssize_t chars_readed = 0;
 	int cycle = 0;
@@ -57,7 +57,7 @@ void _EOF(char *input)
 {
 	if (input)
 	{
-		free(input)};
+		free(input);
 		input = NULL;
 	}
 

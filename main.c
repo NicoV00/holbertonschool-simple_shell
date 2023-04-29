@@ -49,6 +49,26 @@ int main(int ac, char **av, char **env)
 
 
 /*
+ * exit_shell - Function that exits the shell.
+ * @command: Pointer to tokenized command.
+ * Return: Nothing.
+ */
+void exit_shell(char **command)
+{
+	int exit_shell = 0;
+
+	if (command[1] == NULL)
+	{
+		_free(command);
+		exit(EXIT_SUCCESS);
+	}
+
+	exit_shell = _atoi(command[1]);
+	_free(command);
+	exit(exit_shell);
+}
+
+/*
  * end_of_file - Function that handles EOF signal.
  * @buffer: Buffer to be freed.
  * Return: Nothing.
@@ -74,7 +94,7 @@ void _EOF(char *input)
 void prompt(void)
 {
 	if(isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "Sshell $ ", 2);
+		write(STDOUT_FILENO, "Sshell $ ", 9 );
 }
 
 /*
@@ -85,5 +105,5 @@ void prompt(void)
 void handle(int signals)
 {
 	(void)signals;
-	write(STDOUT_FILENO, "\nSshell $ ", 3);
+	write(STDOUT_FILENO, "\nSshell $ ", 11);
 }

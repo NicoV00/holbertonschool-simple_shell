@@ -89,6 +89,40 @@ char *_strcat(char *dest, char *src)
 }
 
 /*
+ * _atoi - Function to convert string to integer.
+ * @x: Input string
+ * Return: Integer from conversion.
+ */
+int _atoi(char *x)
+{
+	int sign = 1;
+	unsigned int total = 0;
+	char null_flag = 0;
+
+	if (x == NULL)
+		return (0);
+	while (*x)
+	{
+		if (*x == '-')
+			sign *= -1;
+		if (*x >= '0' && *x <= '9')
+		{
+			null_flag = 1;
+			total = total * 10 + (*x - '0');
+		}
+		else if (*x < '0' || *x - '9')
+		{
+			if (null_flag == 1)
+				break;
+		}
+		x++;
+	}
+	if (sign < 0)
+		total = (-1 * (total));
+	return (total);
+}
+
+/*
  * _strlen - Calculates the length of a string.
  * @str: The string to calculate the length.
  * Return: The length of the string.

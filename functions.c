@@ -4,7 +4,7 @@
  * read_input - Read user input from stdin
  *
  * Return: Pointer to user input
- */
+ **/
 
 char *read_input(void)
 {

@@ -1,11 +1,10 @@
 #include "main.h"
 
 /**
- * tokenize - Splits a string into tokens.
- * @input: The input string.
- * @delimiter: The delimiter used to split the string.
- * @x: the delimitir for strtok
- * Return: A pointer to an array of tokens.
+* tokenize - Splits a string
+* @input: The input string.
+* @x: the delimiter for strtok
+* Return: A pointer to an array of tokens.
  **/
 
 char **tokenize(char *input, const char *x)
@@ -37,7 +36,6 @@ char **tokenize(char *input, const char *x)
 			_free(commands);
 			return (NULL);
 		}
-
 		_strcpy(commands[i], token);
 		token = strtok(NULL, x);
 		i++;

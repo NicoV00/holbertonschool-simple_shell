@@ -18,8 +18,7 @@ int main(int ac, char **av, char **env)
 	while (1)
 	{
 		cicles++;
-		prompt();
-		signal(SIGINT, handle);
+		prompt();	signal(SIGINT, handle);
 		chars_readed = getline(&buffer, &buf_size, stdin);
 		if (chars_readed == EOF)
 			_EOF(buffer);
@@ -34,8 +33,7 @@ int main(int ac, char **av, char **env)
 			shell_exit(command);
 		else if (_strcmp(command[0], "cd") != 0)
 			change_dir(command[1]);
-		else
-			free_functions(command, av[0], env, cicles);
+		process(command, av[0], env, cicles);
 	}
 	fflush(stdin);
 	buffer = NULL, buf_size = 0;
@@ -66,7 +64,7 @@ void prompt(void)
 void handle(int signals)
 {
 		(void)signals;
-		write(STDOUT_FILENO, "\nHell_Shell>> ", 14);
+		write(STDOUT_FILENO, "\nhsh>> ", 14);
 }
 
 

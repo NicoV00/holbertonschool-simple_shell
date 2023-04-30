@@ -20,16 +20,16 @@ int main(int ac, char **av, char **env);
 void prompt(void);
 void _EOF(char *input);
 void handle(int signals);
-void exit_shell(char **command);
+void shell_exit(char **command);
 
-/* process creation */
-void create_process(char **command, char *name, char **env, int cicles);
-int new_dir(const char *path);
+/* process creation  */
+void process(char **command, char *name, char **env, int cicles);
+int change_dir(const char *path);
 
 /* tokenize */
 char **tokenize(char *input, const char *x);
 
-/* free */
+/* free functions */
 void free_dp(char **command);
 void free_exit(char **command);
 

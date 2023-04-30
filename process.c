@@ -38,12 +38,12 @@ void create_process(char **command, char *name, char **env, int cicles)
 }
 
 /**
-* new_dir - Changes working directory.
-* @path: New current working directory.
-* Return: 0 or 1..
+* change_dir - Changes working directory
+* @path: New current working directory
+* Return: 0 or 1
 **/
 
-int new_dir(const char *path)
+int change_dir(const char *path)
 {
 	char *buf = NULL;
 	size_t size = 1024;

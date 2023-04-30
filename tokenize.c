@@ -4,7 +4,7 @@
  * tokenize - Splits a string into tokens.
  * @input: The input string.
  * @delimiter: The delimiter used to split the string.
- * x: character
+ * @x: the delimitir for strtok
  * Return: A pointer to an array of tokens.
  **/
 

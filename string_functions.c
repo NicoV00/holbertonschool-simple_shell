@@ -1,57 +1,143 @@
 #include "main.h"
 
-/**
-* _strlen - length of a string
-* @str: string to count
-* Return: length of the string
+/*
+* _strcpy - Function thta copies string to string
+* @copyed: Pointer to copy
+* @copy: Pointer to string to copy
+* Return: Pointer to copied strin.
 **/
 
-int _strlen(char *str)
+char *_strcpy(char *copyed, char *copy)
+{
+		char *x = copyed;
+
+		while (*x)
+			*copyed++ = *copy++;
+		*copyed = '\0';
+		return (x);
+}
+
+/*
+* _strcmp - A funtion that compares two strings.
+* @s1: First string to compare.
+* @s2: Ftring to compare.
+* Return: Integer.
+**/
+int _strcmp(char *s1, char *s2)
 {
 		int i;
 
-		for (i = 0; str[i]; i++)
+		for (i = 0; s1[i] != '\0' && s2[i] != '\0'; i++)
 		{
+			if (s1[i] != s2[i])
+				return (s1[i] - s2[i]);
 		}
 
-		return (i);
-}
-
-/**
-* _strcmp - A funtion that compares two strings
-* @s1: string 1
-* @s2: string 2
-* Return: 1 if strings are the same, 0 if not
-**/
-
-int _strcmp(char *s1, char *s2)
-{
-		unsigned int i = 0;
-
-		while (s1[i])
-		{
 		if (s1[i] != s2[i])
-		return (0);
-		i++;
-		}
+			return (s1[i] - s2[i]);
 
-		return (1);
+		return (0);
 }
 
-/**
-* _strcpy - A function that copies a string to another string
-* @dest: The pointer to the copyed string
-* @src: The pointer to string to copy for
-* Return: A pointer to copied string
+/*
+* _strdup - Duplicates a string in memory.
+* @str: pointer to the string to duplicate.
+* Return: pointer to the duplicated string, or NULL.
 **/
 
-char *_strcpy(char *dest, char *src)
+char *_strdup(char *str)
 {
-		char *aux = dest;
+	int i, x;
+	char *array;
 
-		while (*src)
-		*dest++ = *src++;
-		*dest = '\0';
-		return (aux);
+	if (str == NULL)
+		return (NULL);
+
+	for (i = 0; str[i] != '\0'; i++)
+
+	array = malloc(sizeof(char) * (i + 1));
+
+	if (array == NULL)
+		return (NULL);
+
+		for (x = 0; x <= i; x++)
+			array[x] = str[x];
+
+		return (array);
 }
 
+/*
+_strcat - Concatenate two strings.
+* @dest: String dest.
+* @src: String origin.
+* Return: Pointer to string.
+**/
+
+char *_strcat(char *dest, char *src)
+{
+		int dest_len = 0;
+		int i = 0;
+
+		while (dest[dest_len] != '\0')
+		dest_len++;
+
+		while (src[i] != '\0')
+		{
+			dest[dest_len + i] = src[i];
+			i++;
+		}
+
+		dest[dest_len + i] = '\0';
+		return (dest);
+}
+
+/*
+* _atoi - Function to convert string to integer.
+* @x: Input string
+* Return: Integer from conversion.
+**/
+
+int _atoi(char *x)
+{
+	int sign = 1;
+	unsigned int total = 0;
+	char null_flag = 0;
+
+	if (x == NULL)
+		return (0);
+	while (*x)
+	{
+		if (*x == '-')
+			sign *= -1;
+		if (*x >= '0' && *x <= '9')
+		{
+			null_flag = 1;
+			total = total * 10 + (*x - '0');
+		}
+		else if (*x < '0' || *x - '9')
+		{
+			if (null_flag == 1)
+			break;
+		}
+		x++;
+	}
+	if (sign < 0)
+		total = (-1 * (total));
+		return (total);
+}
+
+/*
+* _strlen - Calculates the length of a string.
+* @str: The string to calculate the length.
+* Return: The length of the string.
+**/
+
+unsigned int _strlen(char *str)
+{
+		unsigned int len = 0;
+
+		while (str[len])
+		len++;
+
+		return (len);
+}

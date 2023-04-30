@@ -1,108 +1,112 @@
 #include "main.h"
 
 /**
-* _strcpy - Function thta copies string to string
-* @copyed: Pointer to copy
-* @copy: Pointer to string to copy
-* Return: Pointer to copied strin.
-**/
-
-char *_strcpy(char *copyed, char *copy)
-{
-		char *x = copyed;
-
-		while (*x)
-			*copyed++ = *copy++;
-		*copyed = '\0';
-		return (x);
-}
-
-/**
-* _strcmp - A funtion that compares two strings.
-* @s1: First string to compare.
-* @s2: Ftring to compare.
-* Return: Integer.
+* _strcmp - Function compares two strings
+* @s1: string 1
+* @s2: string 2
+* Return: 1 if strings are the same, 0 if not
 **/
 int _strcmp(char *s1, char *s2)
 {
-		int i;
+		unsigned int i = 0;
 
-		for (i = 0; s1[i] != '\0' && s2[i] != '\0'; i++)
+		while (s1[i])
 		{
 			if (s1[i] != s2[i])
-				return (s1[i] - s2[i]);
+				return (0);
+			i++;
 		}
 
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-
-		return (0);
+		return (1);
 }
 
+
 /**
-* _strdup - Duplicates a string in memory.
-* @str: pointer to the string to duplicate.
-* Return: pointer to the duplicated string, or NULL.
+* _strlen - Function finds the length of the string
+* @s: The input string
+* Return: The length of the string
 **/
 
+unsigned int _strlen(char *s)
+{
+		unsigned int len = 0;
+
+		while (s[len])
+		len++;
+
+		return (len);
+}
+
 
 /**
-* _strcat - Concatenate two strings
-* @dest: String dest.
-* @src: String origin.
-* Return: Pointer to string.
+* _strcpy - Function copies a string to another string
+* @dest: The pointer to the copyed string
+* @src: The pointer to string to copy for
+* Return: A pointer to copied string
+**/
+
+char *_strcpy(char *dest, char *src)
+{
+		char *aux = dest;
+
+		while (*src)
+		*dest++ = *src++;
+		*dest = '\0';
+		return (aux);
+}
+
+
+/**
+* _strcat - Function concatenates two strings.
+* @dest: an input string
+* @src: an input string
+* Return: A pointer to the resulting string
 **/
 
 char *_strcat(char *dest, char *src)
 {
-		int dest_len = 0;
-		int i = 0;
+		char *temp = dest;
 
-		while (dest[dest_len] != '\0')
-		dest_len++;
+		while (*dest)
+			dest++;
 
-		while (src[i] != '\0')
-		{
-			dest[dest_len + i] = src[i];
-			i++;
-		}
-
-		dest[dest_len + i] = '\0';
-		return (dest);
+		*dest++ = '/';
+		while (*src)
+			*dest++ = *src++;
+		return (temp);
 }
 
 /**
-* _atoi - Function to convert string to integer.
-* @x: Input string
-* Return: Integer from conversion.
+* _atoi - a function that converts string to integer
+* @s: An input string
+* Return: integer from conversion
 **/
 
-int _atoi(char *x)
+int _atoi(char *s)
 {
-	int sign = 1;
-	unsigned int total = 0;
-	char null_flag = 0;
+		int sign = 1;
+		unsigned int total = 0;
+		char null_flag = 0;
 
-	if (x == NULL)
-		return (0);
-	while (*x)
-	{
-		if (*x == '-')
-			sign *= -1;
-		if (*x >= '0' && *x <= '9')
+		if (s == NULL)
+			return (0);
+		while (*s)
+		{
+			if (*s == '-')
+				sign *= -1;
+			if (*s >= '0' && *s <= '9')
 		{
 			null_flag = 1;
-			total = total * 10 + (*x - '0');
+			total = total * 10 + (*s - '0');
 		}
-		else if (*x < '0' || *x - '9')
+		else if (*s < '0' || *s > '9')
 		{
 			if (null_flag == 1)
-			break;
+				break;
 		}
-		x++;
+		s++;
 	}
 	if (sign < 0)
 		total = (-1 * (total));
-		return (total);
+	return (total);
 }
-

@@ -22,8 +22,8 @@ void _EOF(char *input);
 void handle(int signals);
 void shell_exit(char **command);
 
-/* process creation  */
-void process(char **command, char *name, char **env, int cicles);
+/* process creation */
+void create_child(char **command, char *name, char **env, int cicles);
 int change_dir(const char *path);
 
 /* tokenize */

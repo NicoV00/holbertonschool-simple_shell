@@ -10,7 +10,7 @@
 int main(int ac, char **av, char **env)
 {
 	char *buffer = NULL, **command = NULL;
-	size_t buf_size = 0;
+	size_t buf_size = 1024;
 	ssize_t chars_readed = 0;
 	int cicles = 0;
 	(void)ac;

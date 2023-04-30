@@ -10,6 +10,7 @@
 #include <sys/types.h>
 #include <signal.h>
 
+#define SIZE 1024
 
 /* Excutable */
 void execute(char **command, char *name, char **env, int cicles);

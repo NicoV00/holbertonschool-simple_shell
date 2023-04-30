@@ -18,8 +18,6 @@ int main(int ac, char **av, char **env)
 	while (1)
 	{
 		cicles++;
-		prompt();	signal(SIGINT, handle);
-		chars_readed = getline(&buffer, &buf_size, stdin);
 		if (chars_readed == EOF)
 			_EOF(buffer);
 		else if (*buffer == '\n')

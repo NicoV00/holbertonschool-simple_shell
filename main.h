@@ -22,7 +22,7 @@ void _EOF(char *input);
 void handle(int signals);
 void shell_exit(char **command);
 
-/* process creation */
+/* child creates */
 void create_child(char **command, char *name, char **env, int cicles);
 int change_dir(const char *path);
 
@@ -42,6 +42,6 @@ unsigned int _strlen(char *str);
 int _atoi(char *x);
 
 /* Global variable */
-extern char **env;
+void print_env(char **env);
 
 #endif

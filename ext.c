@@ -78,6 +78,37 @@ void execute(char **command, char *name, char **env, int cicles)
 		}
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+/*
+ * mserror - A function that prints message not found.
+ * @name: The name of the shell.
+ * @cicles: Number of cicles.
+ * @command: The pointer to tokenized command.
+ * Return: Nothing.
+ */
+void mserror(char *name, int cicles, char **command)
+{
+	char c;
+	
+	c = cicles + '0';
+	write(STDOUT_FILENO, name, _strlen(name));
+	write(STDOUT_FILENO, ": ", 2);
+	write(STDOUT_FILENO, &c, 1);
+	write(STDOUT_FILENO, ": ", 2);
+	write(STDOUT_FILENO, command[0], _strlen(command[0]));
+	write(STDOUT_FILENO, ": not found\n", 12);
+=======
+/**
+* mserror - A function that prints message not found
+* @name: The name of the shell
+* @cicles: Number of cicles
+* @command: The pointer to tokenized command
+* Return: Nothing
+**/
+
+>>>>>>> c75de7b2e6ee71d0c6e18d1b7d3084ebfdbbdc25
 
 /**
 * print_env - Function to print all enviromental variables.
@@ -118,4 +149,5 @@ void mserror(char *name, int cicles, char **command)
 		write(STDOUT_FILENO, ": ", 2);
 		write(STDOUT_FILENO, command[0], _strlen(command[0]));
 		write(STDOUT_FILENO, ": not found\n", 12);
+>>>>>>> d138c94312654320f95d6d3286d7eb762553a3eb
 }

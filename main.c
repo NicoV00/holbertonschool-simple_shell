@@ -26,6 +26,23 @@ int main(int ac, char **av, char **env)
 		else if (*buffer == '\n')
 			free(buffer);
 		else
+<<<<<<< HEAD
+		{
+			input[_strlen(input) - 1] = '\0';
+			cmd = tokenize(input, "\0");
+			free(input);
+			if (_strcmp(cmd[0], "exit") != 0)
+				exit_shell(cmd);
+			else if (_strcmp(cmd[0], "cd") != 0)
+				new_dir(cmd[1]);
+			else if (_strcmp(cmd[0], "env") == 0)
+				print_env(env);
+			else
+				create_process(cmd, av[0], env, cycle);
+			_free(cmd);
+			cmd = NULL;
+		}
+=======
 	{
 		buffer[_strlen(buffer) - 1] = '\0';
 		command = tokenize(buffer, " \0");
@@ -38,6 +55,7 @@ int main(int ac, char **av, char **env)
 	}
 	fflush(stdin);
 	buffer = NULL, buf_size = 0;
+>>>>>>> d138c94312654320f95d6d3286d7eb762553a3eb
 	}
 	if (chars_readed == -1)
 	return (EXIT_FAILURE);
@@ -45,12 +63,41 @@ int main(int ac, char **av, char **env)
 }
 
 
+<<<<<<< HEAD
+/*
+ * exit_shell - Function that exits the shell.
+ * @command: Pointer to tokenized command.
+ * Return: Nothing.
+ */
+void exit_shell(char **command)
+{
+	int exit_shell = 0;
+
+	if (command[1] == NULL)
+	{
+		_free(command);
+		exit(EXIT_SUCCESS);
+	}
+
+	exit_shell = _atoi(command[1]);
+	_free(command);
+	exit(exit_shell);
+}
+
+/*
+ * end_of_file - Function that handles EOF signal.
+ * @buffer: Buffer to be freed.
+ * Return: Nothing.
+ */
+void _EOF(char *input)
+=======
 /**
 * prompt - A function that prints the prompt
 * Return: Nothing
 **/
 
 void prompt(void)
+>>>>>>> d138c94312654320f95d6d3286d7eb762553a3eb
 {
 	if (isatty(STDIN_FILENO))
 	write(STDOUT_FILENO, "hsh>>", 5);
@@ -77,16 +124,29 @@ void handle(int signals)
 
 void _EOF(char *buffer)
 {
+<<<<<<< HEAD
 			if (buffer)
 			{
 				free(buffer);
 				buffer = NULL;
 			}
+=======
+<<<<<<< HEAD
+	if(isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "Sshell $ ", 9 );
+=======
+		if (buffer)
+		{
+			free(buffer);
+			buffer = NULL;
+		}
+>>>>>>> c75de7b2e6ee71d0c6e18d1b7d3084ebfdbbdc25
 
 			if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "\n", 1);
 			free(buffer);
 			exit(EXIT_SUCCESS);
+>>>>>>> d138c94312654320f95d6d3286d7eb762553a3eb
 }
 
 /**
@@ -97,6 +157,10 @@ void _EOF(char *buffer)
 
 void shell_exit(char **command)
 {
+<<<<<<< HEAD
+	(void)signals;
+	write(STDOUT_FILENO, "\nSshell $ ", 11);
+=======
 		int sta_tus = 0;
 
 		if (command[1] == NULL)
@@ -108,4 +172,5 @@ void shell_exit(char **command)
 		sta_tus = _atoi(command[1]);
 		free_dp(command);
 		exit(sta_tus);
+>>>>>>> d138c94312654320f95d6d3286d7eb762553a3eb
 }

@@ -45,29 +45,9 @@ int _strcmp(char *s1, char *s2)
 * Return: pointer to the duplicated string, or NULL.
 **/
 
-char *_strdup(char *str)
-{
-	int i, x;
-	char *array;
-
-	if (str == NULL)
-		return (NULL);
-
-	for (i = 0; str[i] != '\0'; i++)
-
-	array = malloc(sizeof(char) * (i + 1));
-
-	if (array == NULL)
-		return (NULL);
-
-		for (x = 0; x <= i; x++)
-			array[x] = str[x];
-
-		return (array);
-}
 
 /**
-* _strcat - Concatenate two strings.
+* _strcat - Concatenate two strings
 * @dest: String dest.
 * @src: String origin.
 * Return: Pointer to string.

@@ -78,20 +78,12 @@ void execute(char **command, char *name, char **env, int cicles)
 		}
 }
 
+
 /**
-* mserror - A function that prints message not found
-* @name: The name of the shell
-* @cicles: Number of cicles
-* @command: The pointer to tokenized command
-* Return: Nothing
+* print_env - Function to print all enviromental variables.
+* @env: pointer to environmental variable.
+* Return: Nothing.
 **/
-
-
-/**
- * * print_env - Function to print all enviromental variables.
- * * @env: pointer to environmental variable.
- * * Return: Nothing.
- * **/
 
 void print_env(char **env)
 {
@@ -106,6 +98,15 @@ void print_env(char **env)
 		i++;
 		}
 }
+
+/**
+* mserror - A function that prints message not found
+* @name: The name of the shell
+* @cicles: Number of cicles
+* @command: The pointer to tokenized command
+* Return: Nothing
+**/
+
 void mserror(char *name, int cicles, char **command)
 {
 		char c;

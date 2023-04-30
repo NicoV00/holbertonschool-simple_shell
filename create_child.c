@@ -31,10 +31,11 @@ void create_process(char **command, char *name, char **env, int cicles)
 		wait_error = waitpid(pid, &status, 0);
 		if (wait_error < 0)
 		{
-		free_exit(command);
+			free_exit(command);
 		}
 		free_dp(command);
-		}
+		
+	}
 }
 
 /**

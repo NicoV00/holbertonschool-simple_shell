@@ -9,14 +9,14 @@
 **/
 int main(int ac, char **av, char **env)
 {
-	char *buffer = NULL, **command = NULL;
-	size_t buf_size = 1024;
-	ssize_t chars_readed = 0;
-	int cicles = 0;
-	(void)ac;
+		char *buffer = NULL, **command = NULL;
+		size_t buf_size = 1024;
+		ssize_t chars_readed = 0;
+		int cicles = 0;
+		(void)ac;
 
-	while (1)
-	{
+		while (1)
+		{
 		cicles++;
 		prompt();
 		signal(SIGINT, handle);
@@ -40,7 +40,7 @@ int main(int ac, char **av, char **env)
 	buffer = NULL, buf_size = 0;
 	}
 	if (chars_readed == -1)
-		return (EXIT_FAILURE);
+	return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 
@@ -52,8 +52,8 @@ int main(int ac, char **av, char **env)
 
 void prompt(void)
 {
-		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "Hell_Shell>> ", 13);
+	if (isatty(STDIN_FILENO))
+	write(STDOUT_FILENO, "hsh>>", 5);
 }
 
 /**
@@ -64,8 +64,8 @@ void prompt(void)
 
 void handle(int signals)
 {
-		(void)signals;
-		write(STDOUT_FILENO, "\nhsh>> ", 14);
+	(void)signals;
+	write(STDOUT_FILENO, "\nhsh>> ", 7);
 }
 
 
@@ -74,16 +74,17 @@ void handle(int signals)
 * @buffer: The pointer to the input string.
 * Return: Nothing
 **/
+
 void _EOF(char *buffer)
 {
-		if (buffer)
-		{
-			free(buffer);
-			buffer = NULL;
-		}
+			if (buffer)
+			{
+				free(buffer);
+				buffer = NULL;
+			}
 
 			if (isatty(STDIN_FILENO))
-				write(STDOUT_FILENO, "\n", 1);
+			write(STDOUT_FILENO, "\n", 1);
 			free(buffer);
 			exit(EXIT_SUCCESS);
 }
@@ -100,8 +101,8 @@ void shell_exit(char **command)
 
 		if (command[1] == NULL)
 		{
-			free_dp(command);
-			exit(EXIT_SUCCESS);
+		free_dp(command);
+		exit(EXIT_SUCCESS);
 		}
 
 		sta_tus = _atoi(command[1]);

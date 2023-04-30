@@ -22,7 +22,7 @@ char **tokenize(char *input, const char *x)
 	{
 		perror("Unable to allocate buffer");
 		free(input);
-		_free(commands);
+		free_dp(commands);
 		exit(EXIT_FAILURE);
 	}
 
@@ -33,7 +33,7 @@ char **tokenize(char *input, const char *x)
 		if (commands[i] == NULL)
 		{
 			perror("Unable to allocate buffer");
-			_free(commands);
+			free_dp(commands);
 			return (NULL);
 		}
 		_strcpy(commands[i], token);

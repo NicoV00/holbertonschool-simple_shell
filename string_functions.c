@@ -1,6 +1,6 @@
 #include "main.h"
 
-/*
+/**
 * _strcpy - Function thta copies string to string
 * @copyed: Pointer to copy
 * @copy: Pointer to string to copy
@@ -17,7 +17,7 @@ char *_strcpy(char *copyed, char *copy)
 		return (x);
 }
 
-/*
+/**
 * _strcmp - A funtion that compares two strings.
 * @s1: First string to compare.
 * @s2: Ftring to compare.
@@ -39,7 +39,7 @@ int _strcmp(char *s1, char *s2)
 		return (0);
 }
 
-/*
+/**
 * _strdup - Duplicates a string in memory.
 * @str: pointer to the string to duplicate.
 * Return: pointer to the duplicated string, or NULL.
@@ -66,7 +66,7 @@ char *_strdup(char *str)
 		return (array);
 }
 
-/*
+/**
 * _strcat - Concatenate two strings.
 * @dest: String dest.
 * @src: String origin.
@@ -91,7 +91,7 @@ char *_strcat(char *dest, char *src)
 		return (dest);
 }
 
-/*
+/**
 * _atoi - Function to convert string to integer.
 * @x: Input string
 * Return: Integer from conversion.

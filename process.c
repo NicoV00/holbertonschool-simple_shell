@@ -1,13 +1,13 @@
 #include "main.h"
 
-/*
+/**
  * create_process - A function that creates a sub process.
  * @command: Pointer to tokenized command
  * @name: Pointer to the name of shell.
  * @env: Pointer to the enviromental variables.
  * @cicles: Executed cicles.
  * Return: void.
- */
+ **/
 
 void create_process(char **command, char *name, char **env, int cicles)
 {
@@ -38,10 +38,10 @@ void create_process(char **command, char *name, char **env, int cicles)
 }
 
 /**
- * new_dir - Changes working directory.
- * @path: New current working directory.
- * Return: 0 or 1..
- */
+* new_dir - Changes working directory.
+* @path: New current working directory.
+* Return: 0 or 1..
+**/
 
 int new_dir(const char *path)
 {

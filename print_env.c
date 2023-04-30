@@ -1,10 +1,10 @@
 #include "main.h"
 
-/*
- * print_env - Function to print all enviromental variables.
- * @env: pointer to environmental variable.
- * Return: Nothing.
- */
+/**
+* print_env - Function to print all enviromental variables.
+* @env: pointer to environmental variable.
+* Return: Nothing.
+**/
 
 void print_env(char **env)
 {

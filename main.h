@@ -18,7 +18,7 @@ void mserror(char *name, int cicles, char **command);
 /* Functions shell */
 int main(int ac, char **av, char **env);
 void prompt(void);
-void _EOF(char *buffer);
+void _EOF(char *input);
 void handle(int signals);
 void exit_shell(char **command);
 

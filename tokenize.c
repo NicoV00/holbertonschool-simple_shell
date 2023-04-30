@@ -1,11 +1,12 @@
 #include "main.h"
 
-/*
+/**
  * tokenize - Splits a string into tokens.
  * @input: The input string.
  * @delimiter: The delimiter used to split the string.
+ * x: character
  * Return: A pointer to an array of tokens.
- */
+ **/
 
 char **tokenize(char *input, const char *x)
 {

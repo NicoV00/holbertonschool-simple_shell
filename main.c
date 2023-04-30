@@ -6,7 +6,7 @@
  * @av: The pointer to array of inputed arguments.
  * @env: The pointer to array of enviromental variables
  * Return: Always 0
- */
+ **/
 int main(int ac, char **av, char **env)
 {
 	char *input = NULL, **cmd = NULL;
@@ -51,11 +51,11 @@ int main(int ac, char **av, char **env)
 }
 
 
-/*
- * end_of_file - Function that handles EOF signal.
+/**
+ * _EOF - Function that handles EOF signal.
  * @buffer: Buffer to be freed.
  * Return: Nothing.
- */
+ **/
 void _EOF(char *input)
 {
 	if (input)
@@ -70,10 +70,10 @@ void _EOF(char *input)
 	exit(EXIT_SUCCESS);
 }
 
-/*
+/**
  * prompt - Function that prints prompt.
  * Return: Nothing.
- */
+ **/
 void prompt(void)
 {
 

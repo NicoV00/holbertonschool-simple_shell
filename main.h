@@ -8,6 +8,9 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <sys/types.h>
+#include <signal.h>
+
+#define SIZE 1024
 
 /* Excutable */
 void execute(char **command, char *name, char **env, int cicles);
@@ -18,22 +21,22 @@ void mserror(char *name, int cicles, char **command);
 /* Functions shell */
 int main(int ac, char **av, char **env);
 void prompt(void);
-void _EOF(char *buffer);
+void _EOF(char *input);
 void handle(int signals);
-void exit_shell(char **command);
- 
-/* child process creation */
-void create_process(char **command, char *name, char **env, int cicles);
-int new_dir(const char *path);
+void shell_exit(char **command);
+
+/* child creates */
+void create_child(char **command, char *name, char **env, int cicles);
+int change_dir(const char *path);
 
 /* tokenize */
 char **tokenize(char *input, const char *x);
 
-/* free */
-void _free(char **command);
+/* free functions */
+void free_dp(char **command);
 void free_exit(char **command);
 
-/* Auxiliar functions */
+/* Auxiliar or string functions */
 int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 char *_strcpy(char *copyed, char *copy);
@@ -42,6 +45,6 @@ unsigned int _strlen(char *str);
 int _atoi(char *x);
 
 /* Global variable */
-extern char **env;
-
+void print_env(char **env);
+extern char **environ;
 #endif

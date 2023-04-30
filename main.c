@@ -1,31 +1,32 @@
 #include "main.h"
 
 /**
- * main - Simple shell implementation
- * @ac: The number of inputed arguments.
- * @av: The pointer to array of inputed arguments.
- * @env: The pointer to array of enviromental variables
- * Return: Always 0
- */
+* main - A function that runs our shell.
+* @ac: The number of inputed arguments.
+* @av: The pointer to array of inputed arguments.
+* @env: The pointer to array of enviromental variables.
+* Return: Always 0.
+**/
 int main(int ac, char **av, char **env)
 {
-	char *input = NULL, **cmd = NULL;
-	size_t buffer_size = 0;
+	char *buffer = NULL, **command = NULL;
+	size_t buf_size = 1024;
 	ssize_t chars_readed = 0;
-	int cycle = 0;
+	int cicles = 0;
 	(void)ac;
 
 	while (1)
 	{
-		cycle++;
+		cicles++;
 		prompt();
 		signal(SIGINT, handle);
-		chars_readed = getline(&input, &buffer_size, stdin);
+		chars_readed = getline(&buffer, &buf_size, stdin);
 		if (chars_readed == EOF)
-			_EOF(input);
-		else if (*input == '\n')
-			free(input);
+			_EOF(buffer);
+		else if (*buffer == '\n')
+			free(buffer);
 		else
+<<<<<<< HEAD
 		{
 			input[_strlen(input) - 1] = '\0';
 			cmd = tokenize(input, "\0");
@@ -41,6 +42,20 @@ int main(int ac, char **av, char **env)
 			_free(cmd);
 			cmd = NULL;
 		}
+=======
+	{
+		buffer[_strlen(buffer) - 1] = '\0';
+		command = tokenize(buffer, " \0");
+		free(buffer);
+		if (_strcmp(command[0], "exit") != 0)
+			shell_exit(command);
+		else if (_strcmp(command[0], "cd") != 0)
+			change_dir(command[1]);
+		create_child(command, av[0], env, cicles);
+	}
+	fflush(stdin);
+	buffer = NULL, buf_size = 0;
+>>>>>>> d138c94312654320f95d6d3286d7eb762553a3eb
 	}
 	if (chars_readed == -1)
 		return (EXIT_FAILURE);
@@ -48,6 +63,7 @@ int main(int ac, char **av, char **env)
 }
 
 
+<<<<<<< HEAD
 /*
  * exit_shell - Function that exits the shell.
  * @command: Pointer to tokenized command.
@@ -74,36 +90,78 @@ void exit_shell(char **command)
  * Return: Nothing.
  */
 void _EOF(char *input)
-{
-	if (input)
-	{
-		free(input);
-		input = NULL;
-	}
+=======
+/**
+* prompt - A function that prints the prompt
+* Return: Nothing
+**/
 
-	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "\n", 1);
-	free(input);
-	exit(EXIT_SUCCESS);
-}
-
-/*
- * prompt - Function that prints prompt.
- * Return: Nothing.
- */
 void prompt(void)
+>>>>>>> d138c94312654320f95d6d3286d7eb762553a3eb
 {
-	if(isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "Sshell $ ", 9 );
+		if (isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "Hell_Shell>> ", 13);
 }
 
-/*
- * handle - Function to handle Cre + C.
- * @signals: Signals to handle.
- * Return: Nothing.
- */
+/**
+* handle - A function to handle Ctr + C signal.
+* @signals: The signal to handle.
+* Return: Nothing
+**/
+
 void handle(int signals)
 {
+		(void)signals;
+		write(STDOUT_FILENO, "\nhsh>> ", 14);
+}
+
+
+/**
+* _EOF - A function that chaecks if buffer is EOF
+* @buffer: The pointer to the input string.
+* Return: Nothing
+**/
+void _EOF(char *buffer)
+{
+<<<<<<< HEAD
+	if(isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "Sshell $ ", 9 );
+=======
+		if (buffer)
+		{
+			free(buffer);
+			buffer = NULL;
+		}
+
+			if (isatty(STDIN_FILENO))
+				write(STDOUT_FILENO, "\n", 1);
+			free(buffer);
+			exit(EXIT_SUCCESS);
+>>>>>>> d138c94312654320f95d6d3286d7eb762553a3eb
+}
+
+/**
+* shell_exit - A function that exits the shell
+* @command: The pointer to tokenized command
+* Return: Nothing
+**/
+
+void shell_exit(char **command)
+{
+<<<<<<< HEAD
 	(void)signals;
 	write(STDOUT_FILENO, "\nSshell $ ", 11);
+=======
+		int sta_tus = 0;
+
+		if (command[1] == NULL)
+		{
+			free_dp(command);
+			exit(EXIT_SUCCESS);
+		}
+
+		sta_tus = _atoi(command[1]);
+		free_dp(command);
+		exit(sta_tus);
+>>>>>>> d138c94312654320f95d6d3286d7eb762553a3eb
 }

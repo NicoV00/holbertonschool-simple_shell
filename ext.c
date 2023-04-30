@@ -73,20 +73,20 @@ void execute(char **command, char *name, char **env, int cicles)
 				return;
 			}
 		}
-			msgerror(name, cicles, command);
+			mserror(name, cicles, command);
 			free_exit(command);
 		}
 }
 
 /**
-* msgerror - A function that prints message not found
+* mserror - A function that prints message not found
 * @name: The name of the shell
 * @cicles: Number of cicles
 * @command: The pointer to tokenized command
 * Return: Nothing
 **/
 
-void msgerror(char *name, int cicles, char **command)
+void mserror(char *name, int cicles, char **command)
 {
 		char c;
 

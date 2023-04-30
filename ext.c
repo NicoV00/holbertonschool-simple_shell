@@ -19,7 +19,8 @@ char **_getPATH(char **env)
 		{
 			pathvalue = strtok(NULL, "\n");
 			pathways = tokenize(pathvalue, ":");
-			return(pathways);
+			return (pathways);
+
 		}
 		i++;
 	}
@@ -28,7 +29,7 @@ char **_getPATH(char **env)
 
 
 /**
-* function that executes a command
+* execute - that executes a command
 * @command: The pointer to tokienized command
 * @name: The name of the shell
 * @env: The pointer to the enviromental variables
@@ -58,22 +59,22 @@ void execute(char **command, char *name, char **env, int cicles)
 		}
 		else
 		{
-			pathways = _getPATH(env);
-			while (pathways && pathways[i])
-			{
-					full_path = _strcat(pathways[i], "/");
-					full_path = _strcat(full_path, command[0]);
-					if (stat(full_path, &st) == 0)
-					{
-						if (execve(full_path, command, env) < 0)
-						{
-							perror(name);
-							free_exit(command);
-						}
-						return;
-					}
-					i++;
-			}
+		pathways = _getPATH(env);
+		while (pathways && pathways[i])
+		{
+				full_path = _strcat(pathways[i], "/");
+				full_path = _strcat(full_path, command[0]);
+				if (stat(full_path, &st) == 0)
+				{
+				if (execve(full_path, command, env) < 0)
+				{
+				perror(name);
+				free_exit(command);
+				}
+				return;
+				}
+				i++;
+		}
 			mserror(name, cicles, command);
 			free_exit(command);
 		}

@@ -76,15 +76,16 @@ void _EOF(char *input)
  */
 void prompt(void)
 {
-	if(isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "Sshell $ ", 9);
+
+	if(isatty (STDIN_FILENO))
+	write(STDOUT_FILENO, "Sshell $ ", 9);
 }
 
-/*
+/**
  * handle - Function to handle Cre + C.
  * @signals: Signals to handle.
  * Return: Nothing.
- */
+ **/
 void handle(int signals)
 {
 	(void)signals;

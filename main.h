@@ -21,7 +21,7 @@ void prompt(void);
 void _EOF(char *buffer);
 void handle(int signals);
 void exit_shell(char **command);
- 
+
 /* child process creation */
 void create_process(char **command, char *name, char **env, int cicles);
 int new_dir(const char *path);

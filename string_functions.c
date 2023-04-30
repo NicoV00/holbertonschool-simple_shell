@@ -67,7 +67,7 @@ char *_strdup(char *str)
 }
 
 /*
-_strcat - Concatenate two strings.
+* _strcat - Concatenate two strings.
 * @dest: String dest.
 * @src: String origin.
 * Return: Pointer to string.
@@ -126,18 +126,3 @@ int _atoi(char *x)
 		return (total);
 }
 
-/*
-* _strlen - Calculates the length of a string.
-* @str: The string to calculate the length.
-* Return: The length of the string.
-**/
-
-unsigned int _strlen(char *str)
-{
-		unsigned int len = 0;
-
-		while (str[len])
-		len++;
-
-		return (len);
-}

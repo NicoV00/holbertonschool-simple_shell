@@ -8,7 +8,7 @@
 
 void print_env(char **env)
 {
-	size_t i =0; 
+	size_t i = 0;
 	size_t len = 0;
 
 	while (env[i])
@@ -18,4 +18,4 @@ void print_env(char **env)
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
-}	
+}

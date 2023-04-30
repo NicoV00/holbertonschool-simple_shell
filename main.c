@@ -17,15 +17,15 @@ int main(int ac, char **av, char **env)
 
 	while (1)
 	{
-	cicles++;
-	prompt();
-	signal(SIGINT, handle);
-	chars_readed = getline(&buffer, &buf_size, stdin);
-	if (chars_readed == EOF)
-		_EOF(buffer);
-	else if (*buffer == '\n')
-		free(buffer);
-	else
+		cicles++;
+		prompt();
+		signal(SIGINT, handle);
+		chars_readed = getline(&buffer, &buf_size, stdin);
+		if (chars_readed == EOF)
+			_EOF(buffer);
+		else if (*buffer == '\n')
+			free(buffer);
+		else
 	{
 		buffer[_strlen(buffer) - 1] = '\0';
 		command = tokening(buffer, " \0");

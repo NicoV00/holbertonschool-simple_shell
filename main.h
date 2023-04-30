@@ -30,7 +30,7 @@ int new_dir(const char *path);
 char **tokenize(char *input, const char *x);
 
 /* free */
-void _free(char **command);
+void free_dp(char **command);
 void free_exit(char **command);
 
 /* Auxiliar functions */

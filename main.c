@@ -41,6 +41,9 @@ int main(int ac, char **av, char **env)
 			_free(cmd);
 			cmd = NULL;
 		}
+
+		fflush(stdin);
+		input = NULL, buffer_size = 0;
 	}
 	if (chars_readed == -1)
 		return (EXIT_FAILURE);
@@ -74,7 +77,7 @@ void _EOF(char *input)
 void prompt(void)
 {
 	if(isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "Sshell $ ", 2);
+		write(STDOUT_FILENO, "Sshell $ ", 9);
 }
 
 /*
@@ -85,5 +88,5 @@ void prompt(void)
 void handle(int signals)
 {
 	(void)signals;
-	write(STDOUT_FILENO, "\nSshell $ ", 3);
+	write(STDOUT_FILENO, "\nSshell $ ", 11);
 }

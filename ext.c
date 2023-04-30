@@ -12,9 +12,9 @@ char **_getPATH(char **env)
 	char *pathvalue = NULL, **pathways = NULL;
 	unsigned int i = 0;
 
+	pathvalue = strtok(env[i], "=");
 	while (env[i])
 	{
-		pathvalue = strtok(env[i], "=");
 		if (_strcmp(pathvalue, "PATH"))
 		{
 			pathvalue = strtok(NULL, "\n");
@@ -23,6 +23,7 @@ char **_getPATH(char **env)
 
 		}
 		i++;
+		pathvalue = strtok(env[i], "=");
 	}
 	return (NULL);
 }
@@ -44,11 +45,7 @@ void execute(char **command, char *name, char **env, int cicles)
 		unsigned int i = 0;
 
 		if (_strcmp(command[0], "env") != 0)
-		{
 			print_env(env);
-			return;
-		}
-
 		if (stat(command[0], &st) == 0)
 		{
 			if (execve(command[0], command, env) < 0)
@@ -59,21 +56,22 @@ void execute(char **command, char *name, char **env, int cicles)
 		}
 		else
 		{
-		pathways = _getPATH(env);
-		while (pathways && pathways[i])
-		{
+
+			pathways = _getPATH(env);
+			while (pathways && pathways[i])
+			{
 				full_path = _strcat(pathways[i], "/");
-				full_path = _strcat(full_path, command[0]);
+				i++;
 				if (stat(full_path, &st) == 0)
 				{
 				if (execve(full_path, command, env) < 0)
 				{
-				perror(name);
-				free_exit(command);
+					perror(name);
+					free_dp(pathways);
+					free_exit(command);
 				}
 				return;
-				}
-				i++;
+			}
 		}
 			mserror(name, cicles, command);
 			free_exit(command);

@@ -8,6 +8,8 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <sys/types.h>
+#include <signal.h>
+
 
 /* Excutable */
 void execute(char **command, char *name, char **env, int cicles);
@@ -43,5 +45,5 @@ int _atoi(char *x);
 
 /* Global variable */
 void print_env(char **env);
-
+extern char **environ;
 #endif

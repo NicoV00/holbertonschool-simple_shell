@@ -24,7 +24,7 @@ void create_process(char **command, char *name, char **env, int cicles)
 	else if (pid == 0)
 	{
 		execute(command, name, env, cicles);
-		_free(command);
+		free_dp(command);
 	}
 	else
 	{
@@ -33,7 +33,7 @@ void create_process(char **command, char *name, char **env, int cicles)
 		{
 			free_exit(command);
 		}
-		_free(command);
+		free_dp(command);
 	}
 }
 

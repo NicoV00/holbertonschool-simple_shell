@@ -110,3 +110,4 @@ int _atoi(char *s)
 		total = (-1 * (total));
 	return (total);
 }
+

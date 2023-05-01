@@ -56,7 +56,10 @@ Compiled on Ubuntu 20.04 LTS* Compile code with: "gcc -Wall -Werror -Wextra-peda
 
 ## Installation
 * (your_terminal)$ git clone https://github.com/diego29012/holbertonschool-simple_shell.git(your_terminal)$ cd holbertonschool-simple_shell
-* (your_terminal)$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh## LicenseDistributed under the Holberton School
+* (your_terminal)$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+# License
+Distributed under the Holberton School
 
 ## Authors
 

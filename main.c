@@ -108,3 +108,4 @@ void shell_exit(char **command)
 			free_dp(command);
 			exit(sta_tus);
 }
+

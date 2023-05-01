@@ -34,7 +34,6 @@ void create_process(char **command, char *name, char **env, int cicles)
 			free_exit(command);
 		}
 		free_dp(command);
-		
 	}
 }
 

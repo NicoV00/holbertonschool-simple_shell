@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* create_process - A function that creates a sub process.
+* create_child - A function that creates a sub process.
 * @command: Pointer to tokenized command
 * @name: Pointer to the name of shell.
 * @env: Pointer to the enviromental variables.
@@ -9,7 +9,7 @@
 ** Return: void.
 **/
 
-void create_process(char **command, char *name, char **env, int cicles)
+void create_child(char **command, char *name, char **env, int cicles)
 {
 		int pid = 0;
 		int status = 0;

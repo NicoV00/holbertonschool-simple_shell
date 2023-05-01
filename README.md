@@ -3,7 +3,7 @@
 <p align="center">
   <h3 align="center">Creating or own printf function</h3>  <p align="center">  </p>
 </p>
-## Introduction
+Introduction:
 
 This is a Holberton School project that consists of making our own simple shell with a limited amount of functions from the standard library.
  <br/>

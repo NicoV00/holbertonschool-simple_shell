@@ -22,7 +22,7 @@ This is a Holberton School project that consists of making our own simple shell 
 
 ## About The Project
 
-![Screen Shot](https://github.com/Diego29012/holbertonschool-simple_shell)
+(https://github.com/Diego29012/holbertonschool-simple_shell)
 
 This repository is about hsh (Holberton shell). The hsh is a basic command line interpreter, this basic shell try to recreate some of the functions of other shells like bash or sh. This is a public repository so feel free to clone it and use it.
 Invocation:

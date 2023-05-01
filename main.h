@@ -46,5 +46,5 @@ int _atoi(char *x);
 
 /* Global variable */
 void print_env(char **env);
-extern char **environ;
+char *getenviroment(char *name, char **environ);
 #endif

@@ -3,7 +3,7 @@
 <p align="center">
   <h3 align="center">Creating or own printf function</h3>  <p align="center">  </p>
 </p>
-## Introduction:
+## Introduction
 
 This is a Holberton School project that consists of making our own simple shell with a limited amount of functions from the standard library.
  <br/>
@@ -54,9 +54,9 @@ Compiled on Ubuntu 20.04 LTS* Compile code with: "gcc -Wall -Werror -Wextra-peda
 * Support the history feature.
 * Support the file input.
 
-## Installation(your_terminal)$ git clone https://github.com/diego29012/holbertonschool-simple_shell.git(your_terminal)$ cd holbertonschool-simple_shell
-
-(your_terminal)$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh## LicenseDistributed under the Holberton School
+## Installation
+* (your_terminal)$ git clone https://github.com/diego29012/holbertonschool-simple_shell.git(your_terminal)$ cd holbertonschool-simple_shell
+* (your_terminal)$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh## LicenseDistributed under the Holberton School
 
 ## Authors
 

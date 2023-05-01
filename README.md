@@ -8,17 +8,19 @@
  </p>
 </p>
 
-## Table Of Contents* [About the Project](#about-the-project)
+## Table Of Contents
+* [About the Project](#about-the-project)
 * [Built With](#built-with)
 * [Getting Started](#getting-started)
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
 * [License](#license)
-* [Authors](#authors
+* [Authors](#authors)
 
 ## About The Project
 
 ![Screen Shot](https://github.com/Diego29012/holbertonschool-simple_shell)
+
 This repository is about hsh (Holberton shell). The hsh is a basic command line interpreter, this basic shell try to recreate some of the functions of other shells like bash or sh. This is a public repository so feel free to clone it and use it.
 Invocation:
 hsh can be invoked both interactively an non-interactively. If hsh is invoked with standard input not connected to a terminal, it reads and executes received commands in order. (your_terminal)$. /hsh## Built With

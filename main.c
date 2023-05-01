@@ -52,7 +52,7 @@ int main(int ac, char **av, char **env)
 void prompt(void)
 {
 	if (isatty(STDIN_FILENO))
-	write(STDOUT_FILENO, "Hell_Shell>> ", 13);
+	write(STDOUT_FILENO, "hsh>> ", 5);
 }
 
 /**
@@ -64,7 +64,7 @@ void prompt(void)
 void handle(int signals)
 {
 	(void)signals;
-	write(STDOUT_FILENO, "\nhsh>> ", 14);
+	write(STDOUT_FILENO, "\nhsh>> ", 7);
 }
 
 
